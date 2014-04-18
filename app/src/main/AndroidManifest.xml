@@ -6,15 +6,15 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="15" />
 
-
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".MealSpottingApplication"
+        android:name="ru.ekozoch.mealspottingexample.app.MealSpottingApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -22,6 +22,13 @@
         <activity
             android:name="ru.ekozoch.mealspottingexample.app.MainActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.ekozoch.mealspottingexample.app.MealListActivity"
+            android:label="@string/title_activity_meal_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
