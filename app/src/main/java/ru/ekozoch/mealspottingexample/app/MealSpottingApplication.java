@@ -18,7 +18,7 @@ public class MealSpottingApplication extends Application {
 
         ParseObject.registerSubclass(Meal.class);
 
-        Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+        Parse.initialize(this, "O1UuFdAM5M79ZZsTjELXFYFkyQHEs13GhPGHSmZO", "hQEMKNHDZL4Jx013eq3L4TYUusy5GqYN3Zn3ozMh");
 
         ParseUser.enableAutomaticUser();
 

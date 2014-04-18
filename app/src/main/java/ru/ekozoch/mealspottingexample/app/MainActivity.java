@@ -1,22 +1,44 @@
 package ru.ekozoch.mealspottingexample.app;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.parse.ParseObject;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class MainActivity extends ActionBarActivity {
 
+    private Meal meal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        meal = new Meal();
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ParseObject.registerSubclass(Meal.class);
+        // Begin with main data entry view,
+        // NewMealFragment
+        setContentView(R.layout.activity_main);
+        FragmentManager manager = getFragmentManager();
+        Fragment fragment = manager.findFragmentById(R.id.fragmentContainer);
+
+        if (fragment == null) {
+            fragment = new NewMealFragment();
+            manager.beginTransaction().add(R.id.fragmentContainer, fragment)
+                    .commit();
+        }
     }
 
+    public Meal getCurrentMeal() {
+        return meal;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
